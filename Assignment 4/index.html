@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz Game</title>
+    <style>
+        .btn {
+            border: none;
+            background-color: darkorchid;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            padding: 5px;
+            font-family: 'Figtree', sans-serif;
+            animation: transfrom 3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px) scale(1.07);
+            margin: auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript Quiz Game</h1>
+    <button class="btn" onclick="runQuiz()">Start Quiz</button>
+
+    <script>
+        // Array of quiz questions and answers
+        const quizQuestions = [
+            {
+                question: "What is the capital of France?",
+                answer: "paris"
+            },
+            {
+                question: "What is 2 + 2?",
+                answer: "4"
+            },
+            {
+                question: "What is the largest planet in our solar system?",
+                answer: "jupiter"
+            },
+            {
+                question: "Who wrote 'To Kill a Mockingbird'?",
+                answer: "harper lee"
+            },
+            {
+                question: "What is the chemical symbol for water?",
+                answer: "h2o"
+            }
+        ];
+
+        // Function to run the quiz
+        function runQuiz() {
+            let score = 0;
+
+            for (let i = 0; i < quizQuestions.length; i++) {
+                const userAnswer = prompt(quizQuestions[i].question).toLowerCase().trim();
+
+                if (userAnswer === quizQuestions[i].answer) {
+                    score++;
+                    alert("Correct!");
+                } else {
+                    alert(`Wrong! The correct answer is: ${quizQuestions[i].answer}`);
+                }
+            }
+
+            alert(`Quiz completed! Your score is ${score} out of ${quizQuestions.length}`);
+        }
+    </script>
+</body>
+
+</html>
